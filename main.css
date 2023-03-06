@@ -46,6 +46,7 @@
 }
 
 .main-col-row {
+    position: fixed;
     height: calc(100vh - 100px);
     max-height: -webkit-fill-available;
     display: flex;
