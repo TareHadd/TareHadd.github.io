@@ -1,0 +1,148 @@
+.main {
+    width: 100%;
+    min-height: calc(100vh-1.5rem);
+    max-height: calc(100vh-1.5rem);
+}
+
+.main::before {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?cs=srgb&dl=pexels-pixabay-260922.jpg&fm=jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+}
+
+.nav-row {
+    height: 100px;
+}
+
+.nav-row h1 {
+    font-family: 'Courgette', cursive;
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .nav-row h1 {
+        font-size: 30px;
+    }
+}
+
+.nav-row i {
+    cursor: pointer;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.nav-row i:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.main-col-row {
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-col{
+    height: fit-content;
+    border-radius: 3vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
+    background: linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.menu-row {
+    /* min-height: fit-content; */
+    max-height: calc(80vh - 100px);
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.list-group-item {
+    background-color: unset !important;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-top: unset !important;
+    border-left: unset !important;
+    border-right: unset !important;
+    border-radius: unset;
+    font-size: 18px;
+}
+
+.list-group-item:hover {
+    background-color: rgba(250, 245, 245, 0.2) !important;
+    /* color: rgb(0, 0, 0); */
+    transition: 0.2s;
+    cursor: pointer;
+    /* transform: scale(1.2); */
+}
+
+.separate-items {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.fa {
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+
+.fa-arrow-up {
+    top: 0;
+    bottom: unset;
+}
+
+.meal-details:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.decription-image {
+    width: 250px;
+    margin: auto;
+    display: flex;
+}
+
+  /* .collapse {
+    background: rgb(255, 255, 255);
+    height: 100%;
+} */
+/*
+.collapse:not(.show) {
+    display: unset !important;
+    height: 0px;
+    transition: 0.5s;
+}  */
+
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 1vh;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 1vh;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
