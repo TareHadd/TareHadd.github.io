@@ -46,7 +46,7 @@
 }
 
 .main-col-row {
-    max-height: calc(100vh - 100px);
+    max-height: -webkit-fill-available;
     display: flex;
     align-items: center;
     justify-content: center;
