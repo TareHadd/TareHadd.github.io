@@ -132,6 +132,7 @@ let listContainer = document.getElementById('accordion');
 let mainCol = document.getElementById('main-col');
 let arrowUp = document.getElementById('arrow-up');
 let arrowDown = document.getElementById('arrow-down');
+let noteItems = document.getElementById('note-items');
 
 //data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
 //id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion"
@@ -140,16 +141,25 @@ for (let item in menu) {
     let listItem = document.createElement("li");
     let attribute = item;
 
-    listItem.setAttribute("data-target", '#'+attribute);
-    listItem.setAttribute("data-toggle", "collapse");
-    listItem.setAttribute("aria-controls", attribute);
-    listItem.setAttribute("aria-expanded", true);
+    // listItem.setAttribute("data-target", '#'+attribute);
+    // listItem.setAttribute("data-toggle", "collapse");
+    // listItem.setAttribute("aria-controls", attribute);
+    // listItem.setAttribute("aria-expanded", true);
     listItem.classList.add('list-group-item', 'separate-items', 'px-1', 'py-2', 'py-lg-1');
 
     let span1 = document.createElement("span");
     let span2 = document.createElement("span");
     let span3 = document.createElement("span");
     let addSpan = document.createElement("span");
+
+    let collabsableParts = [span2, span1];
+
+    for(c in collabsableParts) { 
+        collabsableParts[c].setAttribute("data-target", '#'+attribute);
+        collabsableParts[c].setAttribute("data-toggle", "collapse");
+        collabsableParts[c].setAttribute("aria-controls", attribute);
+        collabsableParts[c].setAttribute("aria-expanded", true);
+    }
 
     let iconsDiv = document.createElement("div");
     let priceInfoDiv = document.createElement("div");
@@ -169,6 +179,8 @@ for (let item in menu) {
 
 
     span1.innerHTML = menu[item].name;
+    span1.classList.add('d-flex', 'align-items-center', 'col-5', 'p-0')
+    span2.classList.add('d-flex', 'align-items-center', 'col-6', 'pr-0')
     span2.style.fontStyle='italic';
 
     if(menu[item].price % 1 === 0 ) {
@@ -178,11 +190,12 @@ for (let item in menu) {
     }
 
     span3.innerHTML = `<i class="fa fa-light fa-info-circle meal-details mb-2"></i>`
-    addSpan.innerHTML = `<i class="fa fa-plus fa-info-circle meal-details mb-2"></i>`
+    addSpan.innerHTML = `<i class="fa fa-plus meal-details black position-relative"></i>`
+    addSpan.style.fontSize = '20px'
 
     span3.classList.add('mr-5')
-    iconsDiv.classList.add('ml-5')
-    priceInfoDiv.classList.add('mr-3', 'd-flex');
+    //priceInfoDiv.classList.add('d-flex', 'align-items-center', 'col-4', 'p-0');
+    iconsDiv.classList.add('col-1', 'p-0', 'pl-2');
     // span2.classList.add('mr-3');
 
     // iconsDiv.appendChild(span3);
@@ -191,11 +204,12 @@ for (let item in menu) {
     
     iconsDiv.appendChild(addSpan);
 
-    priceInfoDiv.appendChild(span2);
-    priceInfoDiv.appendChild(iconsDiv);
-    
+    // priceInfoDiv.appendChild(span2);
+    // priceInfoDiv.appendChild(iconsDiv);
+
     listItem.appendChild(span1);
-    listItem.appendChild(priceInfoDiv);
+    listItem.appendChild(span2);
+    listItem.appendChild(iconsDiv);
 
     listContainer.appendChild(listItem);
     listContainer.appendChild(collapse)
@@ -205,6 +219,8 @@ for (let item in menu) {
     addSpan.addEventListener("click", () => {
         savedList.push(menu[item]);
         console.log(savedList);
+        noteItems.innerHTML = savedList.length;
+        noteItems.classList.remove('d-none')
     });
 
     // listItem.addEventListener("click", () => {
@@ -235,4 +251,6 @@ mainCol.onscroll = ()=>{
 
 function addToSaveList(item) {
     savedList.push(item);
+    console.log(savedList);
 }
+
